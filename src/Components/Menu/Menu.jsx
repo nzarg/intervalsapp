@@ -24,7 +24,7 @@ const ActiveButtons = (
 );
 
 return (
-	<div className="Control-Buttons">
+	<div className="menu">
 	<div>{props.goBack ? ActiveButtons : StartButton}</div>
 	</div>
 );
