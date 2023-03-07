@@ -1,7 +1,6 @@
 .stop-watch{
-	border: 0.3rem solid red;
 	min-height: 95vh;
-	width: 95%;
+	width: 100%;
 	background-color: hsla(0, 0%, 100%, 0.12);
 
 }

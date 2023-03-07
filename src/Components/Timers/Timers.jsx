@@ -36,7 +36,7 @@ export default function Timers(props) {
         </div>
         <div className="btn btn-two"
           onClick={props.handleAddTimer}>
-          {props.loops/2}
+          {props.loops}
         </div>
         <div className="btn btn-two"
           onClick={props.handleAddLoop}>

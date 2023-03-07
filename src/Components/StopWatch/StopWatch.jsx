@@ -11,7 +11,7 @@ function StopWatch() {
 	const [goBack, setGoBack] = useState(false);
 	const [decrease, setDecrease] = useState(false)
 	const [timersArray, setTimersArray] = useState([0])
-	const [loops, setLoops] = useState(4);
+	const [loops, setLoops] = useState(2);
 
 	useEffect(() => {
 		let interval = null;
@@ -84,7 +84,7 @@ function StopWatch() {
 
 	const handleIncreaseTime = (index) => {
 		setTimersArray(() => {
-			timersArray[index] += 15000 / 2;
+			timersArray[index] += 15000;
 			return [...timersArray]
 		})
 	};
@@ -92,21 +92,21 @@ function StopWatch() {
 	const handleDecreaseTime = (index) => {
 		setTimersArray(() => {
 			if (timersArray[index] >= 0) {
-				if((timersArray[index] -= 15000 / 4) < 0){
+				if(timersArray[index] < 15000){
 					timersArray[index] = 0;
 				} else {
-				timersArray[index] -= 15000 / 4;}
+				timersArray[index] -= 15000;}
 			}
 			return [...timersArray]
 		})
 	}
 
 	const handleAddLoop = () => {
-		setLoops(loops=> loops + 2);
+		setLoops(loops=> loops + 1);
 	}
 
 	const handleRemoveLoop = () => {
-		setLoops(loops=> loops - 2);
+		setLoops(loops=> loops - 1);
 	}
 
 

@@ -23,17 +23,17 @@ export default function Timer(props) {
 	if (props.decrease === true &&
 		props.isActive === true &&
 		props.index === props.timersArray.length - 1 &&
-		timer === 0) {
+		countdownTotal === props.time) {
 		const stopWatch = document.getElementById("stop-watch");
 		stopWatch.style.background = "hsla(121, 100%, 74%, 0.487)";
 		let loops = props.loops;
-		if (loops > 2) {
+		if (loops > 1) {
 			props.setLoops(loops=> loops - 1);
 			props.handleReset();
 			props.handleStart();
 		} else {
 			props.handleReset();
-			props.setLoops(4);
+			props.setLoops(2);
 		}
 	}
 
