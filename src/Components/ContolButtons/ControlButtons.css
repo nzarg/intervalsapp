@@ -8,9 +8,10 @@
 }
 
 .btn-grp {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-around;
+  width: 30%;
 }
 
 .btn {
@@ -30,15 +31,15 @@
 
 .btn-text {
   height: 5vh;
-  margin: 10% 3%;
+  margin: 0 2%;
   min-width: 35vw;
   padding: 0 5%;
 }
 
 .btn-small {
   margin: 6%;
-  min-width: 3vw;
-  padding: 2% 16% 4% 16%;
+  min-width: 5vw;
+  padding: 5% 16% 7% 16%;
 }
 
 .btn-menu {

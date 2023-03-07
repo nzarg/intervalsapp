@@ -6,11 +6,13 @@
 	height: 12%;
 	justify-content: center;
 	margin : 2% 0;
-	min-width: 75vw;
-	padding: 0 5%;
+	min-width: 80vw;
 	width: auto;
 }
-
+.clock{
+	display: flex;
+	margin: 0 9%;
+}
 .digits{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 3rem;

@@ -32,7 +32,7 @@ function StopWatch() {
 
 	const backgroundIsBlack = () => {
 		const stopWatch = document.getElementById("stop-watch");
-		stopWatch.style.background = "hsla(0, 0%, 100%, 0.12)";
+		stopWatch.classList.remove('finish');
 	}
 
 	const handleStart = () => {

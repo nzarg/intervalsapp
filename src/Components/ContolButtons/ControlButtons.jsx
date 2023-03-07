@@ -12,14 +12,14 @@ const StartButton = (
 );
 const ActiveButtons = (
 	<div className="btn-grp">
-	<div className="btn btn-two btn-text"
-		onClick={props.handleReset}>
-		Reset
-	</div>
-	<div className="btn btn-text btn-start"
-		onClick={props.handlePauseResume}>
-		{props.isPaused ? "Resume" : "Pause"}
-	</div>
+		<div className="btn btn-text"
+			onClick={props.handleReset}>
+			Reset
+		</div>
+		<div className="btn btn-text btn-start"
+			onClick={props.handlePauseResume}>
+			{props.isPaused ? "Resume" : "Pause"}
+		</div>
 	</div>
 );
 

@@ -5,7 +5,6 @@ import "./Timers.css";
 export default function Timers(props) {
   return (
     <div className="timers">
-      <div style={{color: 'white'}}>timersArray: {props.timersArray}</div>
       {props.timersArray.map((countdown, index) => {
         return (
           <Timer
