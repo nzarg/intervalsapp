@@ -18,6 +18,9 @@ export default function Timers(props) {
             handleDecreaseTime={props.handleDecreaseTime}
             isActive={props.isActive}
             handleReset={props.handleReset}
+            handleStart={props.handleStart}
+            loops={props.loops}
+            setLoops={props.setLoops}
           />
         )
       })}
@@ -31,7 +34,20 @@ export default function Timers(props) {
           onClick={props.handleRemoveTimer}>
           -
         </div>
-      </div>) : "" 
+        <div className="btn btn-two"
+          onClick={props.handleAddTimer}>
+          {props.loops/2}
+        </div>
+        <div className="btn btn-two"
+          onClick={props.handleAddLoop}>
+          +
+        </div>
+        <div className="btn btn-two"
+          onClick={props.handleRemoveLoop}>
+          -
+        </div>
+      </div>
+      ) : "" 
       }
 
     </div>

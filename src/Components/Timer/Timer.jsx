@@ -5,27 +5,38 @@ export default function Timer(props) {
 	let countdownTotal = 0;
 	let timer = props.countdown;
 
-	if(!props.decrease){
+	if (!props.decrease) {
 		timer = -props.time
 	}
 
 	/* Intervals Logic */
-	for (let i = 0; i <= props.index; i++ ){
+	for (let i = 0; i <= props.index; i++) {
 		countdownTotal += props.timersArray[i]
 	}
-	if(props.time >= countdownTotal - props.countdown)
-	timer = countdownTotal - props.time;
+	if (props.time >= countdownTotal - props.countdown)
+		timer = countdownTotal - props.time;
 
-	if(timer < 0) {
+	if (timer < 0) {
 		timer = 0;
 	}
-	
-	if(props.decrease === true && props.isActive === true && props.index === props.timersArray.length -1 && timer === 0){
+	/* Sets a new background when intervals finish */
+	if (props.decrease === true &&
+		props.isActive === true &&
+		props.index === props.timersArray.length - 1 &&
+		timer === 0) {
 		const stopWatch = document.getElementById("stop-watch");
 		stopWatch.style.background = "hsla(121, 100%, 74%, 0.487)";
-		props.handleReset();
+		let loops = props.loops;
+		if (loops > 2) {
+			props.setLoops(loops=> loops - 1);
+			props.handleReset();
+			props.handleStart();
+		} else {
+			props.handleReset();
+			props.setLoops(4);
+		}
 	}
-	
+
 
 
 	return (
@@ -39,18 +50,18 @@ export default function Timer(props) {
 			<span className="digits mili-sec">
 				{("0" + ((timer / 10) % 100)).slice(-2)}
 			</span>
-			{props.decrease? (
-      <div className="btn-grp">
-        <div className="btn btn-two"
-          onClick={()=>props.handleIncreaseTime(props.index)}>
-          +
-        </div>
-        <div className="btn btn-two"
-          onClick={()=>props.handleDecreaseTime(props.index)}>
-          -
-        </div>
-      </div>) : "" 
-      }
+			{props.decrease ? (
+				<div className="btn-grp">
+					<div className="btn btn-two"
+						onClick={() => props.handleIncreaseTime(props.index)}>
+						+
+					</div>
+					<div className="btn btn-two"
+						onClick={() => props.handleDecreaseTime(props.index)}>
+						-
+					</div>
+				</div>) : ""
+			}
 		</div>
 	);
 }

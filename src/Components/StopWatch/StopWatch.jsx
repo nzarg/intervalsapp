@@ -11,6 +11,7 @@ function StopWatch() {
 	const [goBack, setGoBack] = useState(false);
 	const [decrease, setDecrease] = useState(false)
 	const [timersArray, setTimersArray] = useState([0])
+	const [loops, setLoops] = useState(4);
 
 	useEffect(() => {
 		let interval = null;
@@ -100,6 +101,14 @@ function StopWatch() {
 		})
 	}
 
+	const handleAddLoop = () => {
+		setLoops(loops=> loops + 2);
+	}
+
+	const handleRemoveLoop = () => {
+		setLoops(loops=> loops - 2);
+	}
+
 
 	return (
 		<div id="stop-watch" className="stop-watch">
@@ -114,6 +123,11 @@ function StopWatch() {
 				handleDecreaseTime={handleDecreaseTime}
 				isActive={isActive}
 				handleReset={handleReset}
+				handleStart={handleStart}
+				loops={loops}
+				setLoops={setLoops}
+				handleAddLoop={handleAddLoop}
+				handleRemoveLoop={handleRemoveLoop}
 			/>
 			<ControlButtons
 				active={isActive}
