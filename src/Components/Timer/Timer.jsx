@@ -52,11 +52,11 @@ export default function Timer(props) {
 			</span>
 			{props.decrease ? (
 				<div className="btn-grp">
-					<div className="btn btn-two"
+					<div className="btn btn-small"
 						onClick={() => props.handleIncreaseTime(props.index)}>
 						+
 					</div>
-					<div className="btn btn-two"
+					<div className="btn btn-small"
 						onClick={() => props.handleDecreaseTime(props.index)}>
 						-
 					</div>

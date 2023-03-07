@@ -12,6 +12,7 @@ function StopWatch() {
 	const [decrease, setDecrease] = useState(false)
 	const [timersArray, setTimersArray] = useState([0])
 	const [loops, setLoops] = useState(2);
+	const [isInterval, setIsInterval] = useState(false)
 
 	useEffect(() => {
 		let interval = null;
@@ -51,6 +52,7 @@ function StopWatch() {
 	};
 
 	const handleStopwatch = () => {
+		setIsInterval(false);
 		setDecrease(false);
 		setTimersArray([0])
 		setTime(0);
@@ -58,7 +60,17 @@ function StopWatch() {
 		backgroundIsBlack();
 	};
 
+	const handleCountdown = () => {
+		setIsInterval(false);
+		setDecrease(true);
+		setTimersArray([300000])
+		setTime(0);
+		setGoBack(true);
+		backgroundIsBlack();
+	}
+
 	const handleIntevals = () => {
+		setIsInterval(true);
 		setDecrease(true);
 		setTimersArray([2000, 2000, 2000])
 		setTime(0);
@@ -112,30 +124,41 @@ function StopWatch() {
 
 	return (
 		<div id="stop-watch" className="stop-watch">
-			<Menu handleStopwatch={handleStopwatch} handleIntevals={handleIntevals} handleGoBack={handleGoBack} goBack={goBack} />
-			<Timers
-				time={time}
-				timersArray={timersArray}
-				handleAddTimer={handleAddTimer}
-				handleRemoveTimer={handleRemoveTimer}
-				decrease={decrease}
-				handleIncreaseTime={handleIncreaseTime}
-				handleDecreaseTime={handleDecreaseTime}
-				isActive={isActive}
-				handleReset={handleReset}
-				handleStart={handleStart}
-				loops={loops}
-				setLoops={setLoops}
-				handleAddLoop={handleAddLoop}
-				handleRemoveLoop={handleRemoveLoop}
-			/>
-			<ControlButtons
-				active={isActive}
-				isPaused={isPaused}
-				handleStart={handleStart}
-				handlePauseResume={handlePauseResume}
-				handleReset={handleReset}
-			/>
+			<Menu 
+				handleStopwatch={handleStopwatch}
+				handleCountdown={handleCountdown}
+				handleIntevals={handleIntevals} 
+				handleGoBack={handleGoBack}
+				goBack={goBack} />
+			{goBack?(
+				<div>
+					<Timers
+						time={time}
+						timersArray={timersArray}
+						handleAddTimer={handleAddTimer}
+						handleRemoveTimer={handleRemoveTimer}
+						decrease={decrease}
+						handleIncreaseTime={handleIncreaseTime}
+						handleDecreaseTime={handleDecreaseTime}
+						isActive={isActive}
+						handleReset={handleReset}
+						handleStart={handleStart}
+						loops={loops}
+						setLoops={setLoops}
+						handleAddLoop={handleAddLoop}
+						handleRemoveLoop={handleRemoveLoop}
+						isInterval={isInterval}
+					/>
+					<ControlButtons
+						active={isActive}
+						isPaused={isPaused}
+						handleStart={handleStart}
+						handlePauseResume={handlePauseResume}
+						handleReset={handleReset}
+					/>
+				</div>
+				) : ""
+			}
 		</div>
 	);
 }

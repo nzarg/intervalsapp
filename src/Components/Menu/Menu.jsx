@@ -2,21 +2,25 @@ import React from "react";
 import "./Menu.css";
 
 export default function Menu(props) {
-const StartButton = (
-	<div className="btn-grp">
-	<div className="btn btn-two btn-text"
-		onClick={props.handleStopwatch}>
-		Stopwatch
-	</div>
-	<div className="btn btn-two btn-text"
-		onClick={props.handleIntevals}>
-		Intervals
-	</div>
+const menuButtons = (
+	<div className="btn-grp menu-column">
+    <div className="btn btn-menu"
+      onClick={props.handleStopwatch}>
+      Stopwatch
+    </div>
+    <div className="btn btn-menu"
+      onClick={props.handleCountdown}>
+      Countdown
+    </div>
+    <div className="btn btn-menu"
+      onClick={props.handleIntevals}>
+      Intervals
+    </div>
 	</div>
 );
-const ActiveButtons = (
+const goBackButton = (
 	<div className="btn-grp">
-    <div className="btn btn-two btn-text"
+    <div className="btn btn-text"
       onClick={props.handleGoBack}>
       Go Back
     </div>
@@ -25,7 +29,7 @@ const ActiveButtons = (
 
 return (
 	<div className="menu">
-	{props.goBack ? ActiveButtons : StartButton}
+	{props.goBack ? goBackButton : menuButtons}
 	</div>
 );
 }
