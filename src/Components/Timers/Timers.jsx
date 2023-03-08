@@ -24,24 +24,24 @@ export default function Timers(props) {
         )
       })}
       {props.isInterval? (
-      <div className="btn-grp">
-        <div className="btn btn-small"
+      <div className="btn-grp btn-loops">
+        <div className="btn btn-small-loops"
           onClick={props.handleAddTimer}>
           +
         </div>
-        <div className="btn btn-small"
+        <div className="btn btn-small-loops"
           onClick={props.handleRemoveTimer}>
           -
         </div>
-        <div className="btn btn-small"
+        <div className="btn btn-small-loops"
           onClick={props.handleAddTimer}>
           {props.loops}
         </div>
-        <div className="btn btn-small"
+        <div className="btn btn-small-loops"
           onClick={props.handleAddLoop}>
           +
         </div>
-        <div className="btn btn-small"
+        <div className="btn btn-small-loops"
           onClick={props.handleRemoveLoop}>
           -
         </div>

@@ -41,6 +41,7 @@ export default function Timer(props) {
 
 	return (
 		<div  id={"timer-" + props.index} className="timer"> 
+			<div className="activity">Activity</div>
 			<div className="clock">
 				<span className="digits">
 					{("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
@@ -53,7 +54,7 @@ export default function Timer(props) {
 				</span>
 			</div>	
 				{props.decrease ? (
-					<div className="btn-grp">
+					<div className="btn-grp btn-time">
 						<div className="btn btn-small"
 							onClick={() => props.handleIncreaseTime(props.index)}>
 							+

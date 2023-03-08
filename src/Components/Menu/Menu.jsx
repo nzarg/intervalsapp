@@ -20,7 +20,7 @@ const menuButtons = (
 );
 const goBackButton = (
 	<div className="btn-grp">
-    <div className="btn btn-text"
+    <div className="btn btn-text btn-wide"
       onClick={props.handleGoBack}>
       Go Back
     </div>

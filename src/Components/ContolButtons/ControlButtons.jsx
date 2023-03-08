@@ -4,7 +4,7 @@ import "./ControlButtons.css";
 export default function ControlButtons(props) {
 const StartButton = (
 	<div className="btn-grp"> 
-		<div className="btn btn-text btn-start"
+		<div className="btn btn-text btn-wide red-back"
 			onClick={props.handleStart}>
 		Start
 		</div>
@@ -16,7 +16,7 @@ const ActiveButtons = (
 			onClick={props.handleReset}>
 			Reset
 		</div>
-		<div className="btn btn-text btn-start"
+		<div className="btn btn-text red-back"
 			onClick={props.handlePauseResume}>
 			{props.isPaused ? "Resume" : "Pause"}
 		</div>

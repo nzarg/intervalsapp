@@ -131,7 +131,7 @@ function StopWatch() {
 				handleGoBack={handleGoBack}
 				goBack={goBack} />
 			{goBack?(
-				<div>
+				<div className="w-100">
 					<Timers
 						time={time}
 						timersArray={timersArray}
