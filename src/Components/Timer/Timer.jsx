@@ -41,7 +41,10 @@ export default function Timer(props) {
 
 	return (
 		<div  id={"timer-" + props.index} className="timer"> 
-			<div className="activity">Activity</div>
+			{props.isInterval? (
+				<input className="activity" placeholder="Activity" maxlength="13" />
+			):""
+			}
 			<div className="clock">
 				<span className="digits">
 					{("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:

@@ -47,10 +47,14 @@
   margin: 2% 0;
 }
 .btn-menu {
+  font-size: 1.5rem;
   margin: 5% 0;
   min-width: 80vw;
   min-height: 20vh;
+}
 
+.btn-menu:hover {
+  background-color: #e42a2a;
 }
 
 .btn-wide {

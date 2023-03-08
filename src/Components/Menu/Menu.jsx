@@ -6,15 +6,15 @@ const menuButtons = (
 	<div className="btn-grp menu-column">
     <div className="btn btn-menu"
       onClick={props.handleStopwatch}>
-      Stopwatch
+      STOPWATCH
     </div>
     <div className="btn btn-menu"
       onClick={props.handleCountdown}>
-      Countdown
+      COUNTDOWN
     </div>
     <div className="btn btn-menu"
       onClick={props.handleIntevals}>
-      Intervals
+      INTERVALS
     </div>
 	</div>
 );
@@ -22,7 +22,7 @@ const goBackButton = (
 	<div className="btn-grp">
     <div className="btn btn-text btn-wide"
       onClick={props.handleGoBack}>
-      Go Back
+      GO BACK
     </div>
 	</div>
 );

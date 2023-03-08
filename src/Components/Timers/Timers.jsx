@@ -20,6 +20,7 @@ export default function Timers(props) {
             handleStart={props.handleStart}
             loops={props.loops}
             setLoops={props.setLoops}
+            isInterval={props.isInterval}
           />
         )
       })}
