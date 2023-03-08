@@ -35,9 +35,10 @@
 	padding-left: 2%;
 	text-transform: uppercase;
 	text-align: center;
-	width: 30%;
+	width: 80%;
+	color:#f5f5f5
 }
 
 .activity::placeholder {
-	color: white;
+	color: #f5f5f5;
 }

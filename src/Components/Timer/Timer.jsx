@@ -42,7 +42,7 @@ export default function Timer(props) {
 	return (
 		<div  id={"timer-" + props.index} className="timer"> 
 			{props.isInterval? (
-				<input className="activity" placeholder="Activity" maxlength="13" />
+				<input className="activity" placeholder="Activity" maxlength="18" />
 			):""
 			}
 			<div className="clock">
