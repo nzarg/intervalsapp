@@ -1,10 +1,13 @@
 import React from "react";
 import Timer from "../Timer/Timer";
+import CurrentTimer from "../CurrentTimer/CurrentTimer"
 import "./Timers.css";
 
 export default function Timers(props) {
+
   return (
     <div className="timers">
+      <CurrentTimer timer={props.currentTimer} currentActivity={props.currentActivity} />
       {props.timersArray.map((countdown, index) => {
         return (
           <Timer
@@ -21,6 +24,8 @@ export default function Timers(props) {
             loops={props.loops}
             setLoops={props.setLoops}
             isInterval={props.isInterval}
+            setCurrentTimer={props.setCurrentTimer}
+            setCurrentActivity={props.setCurrentActivity}
           />
         )
       })}

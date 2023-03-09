@@ -18,7 +18,7 @@ const ActiveButtons = (
 		</div>
 		<div className="btn btn-text red-back"
 			onClick={props.handlePauseResume}>
-			{props.isPaused ? "Resume" : "Pause"}
+			{props.isPaused ? "RESUME" : "PAUSE"}
 		</div>
 	</div>
 );

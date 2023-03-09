@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Timer.css";
 
 export default function Timer(props) {
+	const [activityName, setActivityName] = useState("")
+
 	let countdownTotal = 0;
 	let timer = props.countdown;
 
+	/* Stopwatch timer */
 	if (!props.decrease) {
 		timer = -props.time
 	}
@@ -13,9 +16,11 @@ export default function Timer(props) {
 	for (let i = 0; i <= props.index; i++) {
 		countdownTotal += props.timersArray[i]
 	}
-	if (props.time >= countdownTotal - props.countdown)
+	if (props.time >= countdownTotal - props.countdown) {
 		timer = countdownTotal - props.time;
-
+		props.setCurrentTimer(timer);
+		props.setCurrentActivity(activityName);
+	}
 	if (timer < 0) {
 		timer = 0;
 	}
@@ -28,7 +33,7 @@ export default function Timer(props) {
 		stopWatch.classList.add('finish');
 		let loops = props.loops;
 		if (loops > 1) {
-			props.setLoops(loops=> loops - 1);
+			props.setLoops(loops => loops - 1);
 			props.handleReset();
 			props.handleStart();
 		} else {
@@ -37,14 +42,18 @@ export default function Timer(props) {
 		}
 	}
 
-
+	const handleChange = (e) =>{
+		setActivityName(e.target.value)
+	
+	}
 
 	return (
-		<div  id={"timer-" + props.index} className="timer"> 
-			{props.isInterval? (
-				<input className="activity" placeholder="Activity" maxlength="18" />
-			):""
+		<div id={"timer-" + props.index} className="timer">
+			{props.isInterval ? (
+				<input id={"activity-"+props.index} className="activity" placeholder="Activity" maxlength="18" onChange={handleChange} />
+			) : ""
 			}
+			<div className="activity"></div>
 			<div className="clock">
 				<span className="digits">
 					{("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
@@ -55,19 +64,19 @@ export default function Timer(props) {
 				<span className="digits mili-sec">
 					{("0" + ((timer / 10) % 100)).slice(-2)}
 				</span>
-			</div>	
-				{props.decrease ? (
-					<div className="btn-grp btn-time">
-						<div className="btn btn-small"
-							onClick={() => props.handleIncreaseTime(props.index)}>
-							+
-						</div>
-						<div className="btn btn-small"
-							onClick={() => props.handleDecreaseTime(props.index)}>
-							-
-						</div>
-					</div>) : ""
-				}
+			</div>
+			{props.decrease ? (
+				<div className="btn-grp btn-time">
+					<div className="btn btn-small"
+						onClick={() => props.handleIncreaseTime(props.index)}>
+						+
+					</div>
+					<div className="btn btn-small"
+						onClick={() => props.handleDecreaseTime(props.index)}>
+						-
+					</div>
+				</div>) : ""
+			}
 		</div>
 	);
 }

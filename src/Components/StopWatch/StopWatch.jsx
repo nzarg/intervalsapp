@@ -9,10 +9,12 @@ function StopWatch() {
 	const [isPaused, setIsPaused] = useState(true);
 	const [time, setTime] = useState(0);
 	const [goBack, setGoBack] = useState(false);
-	const [decrease, setDecrease] = useState(false)
-	const [timersArray, setTimersArray] = useState([0])
+	const [decrease, setDecrease] = useState(false);
+	const [timersArray, setTimersArray] = useState([0]);
 	const [loops, setLoops] = useState(2);
-	const [isInterval, setIsInterval] = useState(false)
+	const [isInterval, setIsInterval] = useState(false);
+	const [currentTimer, setCurrentTimer] = useState(0);
+	const [currentActivity, setCurrentActivity] = useState('activity')
 
 	useEffect(() => {
 		let interval = null;
@@ -104,33 +106,34 @@ function StopWatch() {
 	const handleDecreaseTime = (index) => {
 		setTimersArray(() => {
 			if (timersArray[index] >= 0) {
-				if(timersArray[index] < 15000){
+				if (timersArray[index] < 15000) {
 					timersArray[index] = 0;
 				} else {
-				timersArray[index] -= 15000;}
+					timersArray[index] -= 15000;
+				}
 			}
 			return [...timersArray]
 		})
 	}
 
 	const handleAddLoop = () => {
-		setLoops(loops=> loops + 1);
+		setLoops(loops => loops + 1);
 	}
 
 	const handleRemoveLoop = () => {
-		setLoops(loops=> loops - 1);
+		setLoops(loops => loops - 1);
 	}
 
 
 	return (
 		<div id="stop-watch" className="stop-watch">
-			<Menu 
+			<Menu
 				handleStopwatch={handleStopwatch}
 				handleCountdown={handleCountdown}
-				handleIntevals={handleIntevals} 
+				handleIntevals={handleIntevals}
 				handleGoBack={handleGoBack}
 				goBack={goBack} />
-			{goBack?(
+			{goBack ? (
 				<div className="w-100">
 					<Timers
 						time={time}
@@ -148,6 +151,10 @@ function StopWatch() {
 						handleAddLoop={handleAddLoop}
 						handleRemoveLoop={handleRemoveLoop}
 						isInterval={isInterval}
+						currentTimer={currentTimer}
+						setCurrentTimer={setCurrentTimer}
+						currentActivity={currentActivity}
+						setCurrentActivity={setCurrentActivity}
 					/>
 					<ControlButtons
 						active={isActive}
@@ -157,7 +164,7 @@ function StopWatch() {
 						handleReset={handleReset}
 					/>
 				</div>
-				) : ""
+			) : ""
 			}
 		</div>
 	);
