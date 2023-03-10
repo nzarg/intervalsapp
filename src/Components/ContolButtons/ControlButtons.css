@@ -15,6 +15,7 @@
 
 .btn-time {
   width: 30%;
+  padding: 2% 0;
 }
 
 .btn-loops{
@@ -22,7 +23,6 @@
 }
 .btn {
   background-color: hsla(0, 0%, 100%, .5);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 14px;
   display: flex;
   justify-content: center;
@@ -51,10 +51,6 @@
   margin: 5% 0;
   min-width: 80vw;
   min-height: 20vh;
-}
-
-.btn-menu:hover {
-  background-color: #e42a2a;
 }
 
 .btn-wide {

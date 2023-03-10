@@ -7,11 +7,6 @@ export default function Timer(props) {
 	let countdownTotal = 0;
 	let timer = props.countdown;
 
-	/* Stopwatch timer */
-	if (!props.decrease) {
-		timer = -props.time
-	}
-
 	/* Intervals Logic */
 	for (let i = 0; i <= props.index; i++) {
 		countdownTotal += props.timersArray[i]
@@ -42,6 +37,12 @@ export default function Timer(props) {
 		}
 	}
 
+	/* Stopwatch timer */
+	if (!props.decrease) {
+		timer = -props.time;
+		props.setCurrentTimer(timer);
+	}
+
 	const handleChange = (e) =>{
 		setActivityName(e.target.value)
 	
@@ -50,21 +51,22 @@ export default function Timer(props) {
 	return (
 		<div id={"timer-" + props.index} className="timer">
 			{props.isInterval ? (
-				<input id={"activity-"+props.index} className="activity" placeholder="Activity" maxlength="18" onChange={handleChange} />
+				<input id={"activity-"+props.index} className="activity" placeholder="Activity" maxlength="9" onChange={handleChange} />
 			) : ""
 			}
-			<div className="activity"></div>
-			<div className="clock">
-				<span className="digits">
-					{("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
-				</span>
-				<span className="digits">
-					{("0" + Math.floor((timer / 1000) % 60)).slice(-2)}.
-				</span>
-				<span className="digits mili-sec">
-					{("0" + ((timer / 10) % 100)).slice(-2)}
-				</span>
-			</div>
+			{props.isInterval || !props.decrease? (
+				<div className="clock">
+					<span className="digits">
+						{("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
+					</span>
+					<span className="digits">
+						{("0" + Math.floor((timer / 1000) % 60)).slice(-2)}.
+					</span>
+					<span className="digits mili-sec">
+						{("0" + ((timer / 10) % 100)).slice(-2)}
+					</span>
+				</div>):""
+			}
 			{props.decrease ? (
 				<div className="btn-grp btn-time">
 					<div className="btn btn-small"

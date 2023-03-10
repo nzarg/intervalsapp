@@ -4,7 +4,6 @@ import CurrentTimer from "../CurrentTimer/CurrentTimer"
 import "./Timers.css";
 
 export default function Timers(props) {
-
   return (
     <div className="timers">
       <CurrentTimer timer={props.currentTimer} currentActivity={props.currentActivity} />
